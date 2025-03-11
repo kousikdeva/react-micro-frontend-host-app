@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require('webpack');
+const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
 require('dotenv').config(); // Load .env file
 
 module.exports = {
@@ -29,6 +30,16 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             'process.env': JSON.stringify(process.env),
+        }),
+        new ModuleFederationPlugin({
+            name: "hostApp",
+            remotes: {
+                remoteApp: "remoteApp@http://localhost:3001/remoteEntry.js",
+            },
+            shared: {
+                react: { singleton: true, eager: true },
+                "react-dom": { singleton: true, eager: true },
+            },
         }),
     ],
     devServer: {

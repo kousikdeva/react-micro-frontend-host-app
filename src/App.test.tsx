@@ -4,5 +4,5 @@ import App from "./App";
 
 test("renders hello message", () => {
     render(<App />);
-    expect(screen.getByText("Hello, React with TypeScript!")).toBeInTheDocument();
+    expect(screen.getByText("Hello, React MicroFE Host App")).toBeInTheDocument();
 });
