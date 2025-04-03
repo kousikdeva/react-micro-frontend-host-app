@@ -1,13 +1,25 @@
 {
   "compilerOptions": {
+    "target": "ES5",
+    "lib": [
+      "dom",
+      "ESNext"
+    ],
     "jsx": "react-jsx",
     "strict": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "target": "ES6",
     "outDir": "dist",
     "rootDir": "src",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": "src",
     "types": [
       "jest",
       "node"
@@ -16,5 +28,8 @@
   "include": [
     "src/**/*",
     "setupTests.ts"
+  ],
+  "exclude": [
+    "node_modules/**/*"
   ]
 }
